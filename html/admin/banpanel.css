@@ -1,3 +1,7 @@
+.body {
+	color: #878d74;
+}
+
 .column {
     float: left;
     flex-wrap: wrap;
