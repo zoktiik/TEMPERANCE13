@@ -237,8 +237,8 @@
 		var/list/headless_job_lists = list("Perserdun" = GLOB.perserdun_positions,
 							"Risvon" = GLOB.risvon_positions,
 							"King's Row" = GLOB.kingsrow_positions,
-							"Unaffiliated" = GLOB.nonaffiliated_positions,
-							"Abstract" = list("Appearance", "Emote", "Deadchat", "OOC", "LOOC"))
+							"Abstract" = list("Appearance", "Emote", "Deadchat", "OOC", "LOOC"),
+							"Unaffiliated" = GLOB.nonaffiliated_positions)
 		for(var/department in headless_job_lists)
 			output += "<div class='column'><label class='rolegroup [ckey(department)]'><input type='checkbox' name='[department]' class='hidden' onClick='toggle_checkboxes(this, \"_com\")'>[department]</label><div class='content'>"
 			break_counter = 0
