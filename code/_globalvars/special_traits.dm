@@ -37,12 +37,22 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 	apply_charflaw_equipment(character, player)
 	apply_prefs_special(character, player)
 	apply_prefs_virtue(character, player)
+	apply_voicepacks(character, player)
 	if(player.prefs.loadout)
 		character.mind.special_items[player.prefs.loadout::name] += player.prefs.loadout.path
 	if(player.prefs.loadout2)
 		character.mind.special_items[player.prefs.loadout2::name] += player.prefs.loadout2.path
 	if(player.prefs.loadout3)
 		character.mind.special_items[player.prefs.loadout3::name] += player.prefs.loadout3.path
+
+/proc/apply_voicepacks(mob/living/carbon/human/character, client/player)
+	if(player.prefs.voice_type_override)
+		switch(player.prefs.voice_type)
+			if(VOICE_TYPE_MASC_FOP)	//The other voice packs wouldn't have much to override, but could be included here.
+				character.dna.species.soundpack_m = new /datum/voicepack/male/foppish()
+	else
+		return	//Though optimally we'd just have a pref for voice packs.
+
 
 /proc/apply_prefs_virtue(mob/living/carbon/human/character, client/player)
 	if (!player)
